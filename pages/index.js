@@ -24,41 +24,31 @@ export default function Home({ session }) {
 					{!session && (
 						<>
 							Not signed in <br />
-							<button onClick={() => signIn()}>
-								Sign in
-							</button>
+							<button onClick={() => signIn()}>Sign in</button>
 						</>
 					)}
 					{session && (
 						<>
 							Signed in as {session.user.email} <br />
-							<button onClick={() => signOut()}>
-								Sign out
-							</button>
+							<button onClick={() => signOut()}>Sign out</button>
 						</>
 					)}
 				</p>
 
 				<div className={styles.grid}>
-					<a
-						href="https://nextjs.org/docs"
-						className={styles.card}
-					>
+					<a href="https://nextjs.org/docs" className={styles.card}>
 						<h2>Documentation &rarr;</h2>
 						<p>
-							Find in-depth information about Next.js
-							features and API.
+							Find in-depth information about Next.js features and
+							API.
 						</p>
 					</a>
 
-					<a
-						href="https://nextjs.org/learn"
-						className={styles.card}
-					>
+					<a href="https://nextjs.org/learn" className={styles.card}>
 						<h2>Learn &rarr;</h2>
 						<p>
-							Learn about Next.js in an interactive course
-							with quizzes!
+							Learn about Next.js in an interactive course with
+							quizzes!
 						</p>
 					</a>
 
@@ -79,8 +69,8 @@ export default function Home({ session }) {
 					>
 						<h2>Deploy &rarr;</h2>
 						<p>
-							Instantly deploy your Next.js site to a public
-							URL with Vercel.
+							Instantly deploy your Next.js site to a public URL
+							with Vercel.
 						</p>
 					</a>
 				</div>
@@ -110,6 +100,6 @@ export default function Home({ session }) {
 export async function getServerSideProps(context) {
 	const session = await getSession(context);
 	return {
-		props: session,
+		props: { session },
 	};
 }
